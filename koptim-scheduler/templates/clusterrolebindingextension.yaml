@@ -1,0 +1,14 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  labels:
+    {{- include "koptim-scheduler.labels" . | nindent 4 }}
+  name: schedulerextension-as-kube-scheduler
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: {{ template "koptim-scheduler.fullname" . }}
+subjects:
+  - kind: ServiceAccount
+    name: {{ include "koptim-scheduler.serviceAccountName" . }}
+    namespace: kube-system

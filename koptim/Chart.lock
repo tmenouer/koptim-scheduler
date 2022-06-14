@@ -1,0 +1,9 @@
+dependencies:
+- name: koptim-criteria
+  repository: file://../koptim-criteria/
+  version: 0.1.0
+- name: koptim-scheduler
+  repository: file://../koptim-scheduler/
+  version: 0.1.0
+digest: sha256:5064c70ce3728d846b90d4a1cf60fdf2e0cf0516be1844e87e7053b7ed1d0d1c
+generated: "2022-06-14T17:50:23.846049988+02:00"

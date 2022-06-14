@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: {{ include "koptim-criteria.fullname" . }}
+spec:
+  selector:
+    matchLabels:
+      name: code
+  template:
+    metadata:
+      labels:
+        name: code
+    spec:
+      serviceAccountName: {{ include "koptim-criteria.serviceAccountName" . }}
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        args:  {{  .Values.arguments }}
+
